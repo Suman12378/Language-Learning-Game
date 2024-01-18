@@ -1,0 +1,76 @@
+// home.scss
+
+.home {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // background-color: #f5f5f5; // Light background color
+    color: #ece4e4; // Text color
+  
+    .home-header {
+      text-align: center;
+      margin-bottom: 20px;
+  
+      h1 {
+        font-size: 2.5rem; // Larger font size for the main heading
+        color: #3498db; // Blue heading color
+        margin-bottom: 10px;
+      }
+  
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  
+    .card-container {
+      display: flex;
+      justify-content: center;
+  
+      .card {
+        background-color: #fff; // White card background
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // Box shadow for a subtle lift
+        border-radius: 8px;
+        padding: 20px;
+        margin: 0 15px;
+        width: 300px; // Fixed width for the cards
+        text-align: center;
+        transition: transform 0.3s ease;
+  
+        &:hover {
+          transform: scale(1.05); // Scale up on hover for a subtle effect
+        }
+  
+        h2 {
+          font-size: 1.8rem;
+          color: #333;
+          margin-bottom: 10px;
+        }
+  
+        p {
+          font-size: 1.1rem;
+          margin-bottom: 20px;
+          color: #666;
+        }
+  
+        .btn-login,
+        .btn-signup {
+          display: inline-block;
+          padding: 10px 20px;
+          font-size: 1rem;
+          color: #fff;
+          background-color: #3498db; // Blue button color
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          text-decoration: none;
+  
+          &:hover {
+            background-color: #2980b9; // Darker blue on hover
+          }
+        }
+      }
+    }
+  }
+  
