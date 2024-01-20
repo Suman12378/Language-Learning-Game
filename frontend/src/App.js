@@ -21,11 +21,12 @@ const App = () => {
 
   const dispatch = useDispatch();
   const { user } = useSelector( state => state.user);
+  // console.log(user);
 
   useEffect(() => {
       try{
           onAuthStateChanged( auth, async(user) => {
-             console.log(user);
+            //  console.log(user);
                if(user){
                 
                   const authtoken = await user.getIdToken(false);
@@ -43,15 +44,16 @@ const App = () => {
                      );
 
 
-                    //  console.log(response.data);
 
                      dispatch({
-                       type: 'SignIn',
+                       type: 'LogIn',
                        payload: {
                            ...response.data.user,
                            authtoken: authtoken,
                        },
                      });
+
+                      // console.log(user);
                  
                }
                else{
@@ -70,21 +72,21 @@ const App = () => {
   }, []);
 
 
-
+ 
   return (
      <div className='game'>
 
 
       <Router> 
+        {user && <Navbar/>}
         <Routes>
              <Route path='/' index element = {<Home/>}/>
              {!user && <Route path='/login' element = {<Login/>}/>}
-             {!user && <Route path='/signup' index element = {<Signup/>}/>}
-               <Route path='/lobby'  element = {<Lobby/>}/>
-                <Route path='leaderboard' element = {<Leaderboard/>}/>
+             {!user && <Route path='/signup'  element = {<Signup/>}/>}
+               {user && <Route path='/lobby' element = {<Lobby/>}/>}
                 <Route path='question' element = {<Questions/>}/>
               
-        </Routes>
+        </Routes> 
         <Toaster/>
     </Router>
 

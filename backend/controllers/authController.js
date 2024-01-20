@@ -26,11 +26,21 @@ const userDetails = async(req, res, next) => {
 const fetchProfile = async(req, res, next) => {
       
     try{
-        const { email } = req.body;
-        console.log(email);
+        const { name, email } = req.userData;
+        //  console.log(email); 
+        //  console.log(name); 
 
-      let user = await User.find({email: email});
-      console.log(user);
+      let user = await User.findOne({"email": email});
+
+        if(!user){
+         user = new User({
+                name, 
+                email,
+            });
+        
+            await user.save();
+        }
+    //   console.log(user);
 
       return res.status(200).json({message: "Successfully Found The User", user});
     }

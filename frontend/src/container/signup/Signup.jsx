@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './signup.scss';
 import { useNavigate } from 'react-router-dom';
-import { getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import {toast} from 'react-hot-toast'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
@@ -39,18 +39,25 @@ const submitHandler = async(event) => {
        }
 
        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+       
+      //  let result = await axios.post(
+			// 	`${BACKEND_DOMAIN}auth/v1/auth/profile`,    
+			// 	{ 
+			// 		name: name,  
+      //     email:email    
+					
+					
+			// 	},
+			// 	{
+			// 		headers: {
+			// 			authtoken: user.authtoken,
+			// 		},
+			// 	}
+			// );
 
-      //  const response = await axios.post(`${BACKEND_DOMAIN}/auth/signin`, 
-      //     {
-      //       name,
-      //       email,
-      //     },
-      //     {
-      //         headers: {
-      //              authtoken: user.authtoken,
-      //         },
-      //     }
-      //  );
+      // console.log(result);
+
+
 
 
        toast.success('Account Created Successfully');

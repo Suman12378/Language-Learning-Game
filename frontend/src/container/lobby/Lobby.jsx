@@ -26,7 +26,7 @@ const Lobby = () => {
     const { arr } = response.data;
 
     console.log(arr);
-
+   
     navigate('/question', {state: {arr}});
     
      
@@ -40,7 +40,7 @@ const Lobby = () => {
   return (
    <div className="lobby">
        <div className="header">
-         <Navbar/>
+       
        </div>
 
        <div className="content">

@@ -8,8 +8,9 @@ exports.verifyUser = async (req, res, next) => {
 			return;
 		}
 		const userData = await admin.auth().verifyIdToken(authtoken);
+		//  console.log(userData);
 		req.userData = userData;
-		// console.log(userData);
+		
 		next();
 	} catch (err) {
 		console.log(err);
