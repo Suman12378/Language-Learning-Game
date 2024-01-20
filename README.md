@@ -73,6 +73,14 @@ Welcome to the Language Learning Quiz App! This interactive platform allows user
 GET http://localhost:3000/api/v1/get
 ```
 
+```http
+POST http://localhost:3000/api/v1/auth/profile
+```
+
+```http
+POST http://localhost:3000/api/v1/setter
+```
+
   ## Scripts
 
 - **start:** Start the development server using `nodemon`.
